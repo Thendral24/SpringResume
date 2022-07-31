@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+	<title></title>
+	<link rel="stylesheet"  href="./style.css"/>
+	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<h1 data-th-text="${message}">Hello!</h1>
+
+	<div class="main">
+		<div class="top-section">
+			<img src="./IMG_20220201_101425.jpg" class="profile" />
+			<p class="p1">THENDRAL M </p>
+			<p class="p2">FULLSTACK DEVELOPER</p>
+		</div>
+		<div class="clearfix"></div>
+
+		<div class="col-div-4">
+			<div class="content-box" style="padding-left: 40px;">	
+				<div >
+					
+
+			<p class="head">Contact</p>
+			<form action="#" th:action="@{/update}" th:object="${con}" method="post">
+				<input type="hidden" th:field="*{contactId}">
+			<p class="p3"><i class="fa fa-phone" aria-hidden="true"></i>
+				<input 
+				type="text" th:field="*{phoneNumber}"
+				id="phone number"
+				placeholder="Enter phonenumber">
+			</p>
+			<p class="p3"><i class="fa fa-envelope" aria-hidden="true"></i>
+				<input 
+				type="text" th:field="*{email}"
+				id="email"
+				placeholder="Enter mail id">
+			</p>
+			<p class="p3"><i class="fa fa-home" aria-hidden="true"></i>
+				<input 
+				type="text" th:field="*{address}"
+				id="address"
+				placeholder="Enter address">
+			</p>
+		</br>
+			
+			<!-- <button type="button" class="btn btn-info">Save</button> -->
+			<input type="submit" value="Submit" />
+			
+		</form>
+        </div>
+
+
+
+		    <!-- <p contenteditable="true" class="p3"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;&nbsp;98876543210</p>
+			<p contenteditable="true" class="p3"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;&nbsp;gmail.com</p>
+			<p contenteditable="true" class="p3"><i class="fa fa-home" aria-hidden="true"></i> &nbsp;&nbsp;Ooty</p>
+			<br/> -->
+			<p class="head">my skills</p>
+			<ul th:each="skill:${sk}" class="skills">
+				<li th:text="${skill}" ></li>	
+			</ul>
+			<br/>
+			
+			<p class="head">Languages known</p>
+			<div th:each="language:${la}"><p th:text="${language}"  class="p-4" ></p></div>
+			
+
+			</div>
+		</div>
+		<div class="line"></div>
+		<div class="col-div-8">
+			<div class="content-box">
+			<p class="head">Career Objective</p>
+			<p class="p3" style="font-size: 14px;" th:text="${resume.getCareerobjective()}"> </p>
+			<br/>
+			<p class="head">Academic History</p>
+			<div th:each="academic:${ac}"><p th:text="${academic}"  class="p-4" ></p></div>
+			
+			<br/>
+            <p class="head">Inplant Training and Workshops</p>
+			<div th:each="inplant:${in}"><p th:text="${inplant}"  class="p-4" ></p></div>
+				
+             <br/>
+			<p class="head">Certifications</p>
+			 <p class="headnext" >Hacker rank</p> 
+			<div th:each="certificate:${ce}"><p th:text="${certificate}"  class="p-4" ></p></div>
+			
+			<br/>
+
+			</div>
+
+		</div>
+
+		<div class="clearfix"></div>
+
+	</div>
+		<br/>
+</body>
+</html>
